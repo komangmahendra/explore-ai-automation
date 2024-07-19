@@ -1,4 +1,4 @@
-import { expect, type Locator, type Page } from "@playwright/test";
+import { type Locator, type Page } from "@playwright/test";
 
 export class LoginPage {
   readonly page: Page;
@@ -16,19 +16,10 @@ export class LoginPage {
     this.inputEmail = page.locator(`//input[@id="email"]`);
     this.inputPassword = page.locator(`//input[@id="password"]`);
     this.buttonSignIn = page.locator("//button", { hasText: "Sign In" });
-    // this.gettingStartedHeader = page.locator("h1", { hasText: "Installation" });
-    // this.pomLink = page
-    //   .locator("li", {
-    //     hasText: "Guides",
-    //   })
-    //   .locator("a", {
-    //     hasText: "Page Object Model",
-    //   });
-    // this.tocList = page.locator("article div.markdown ul > li > a");
   }
 
   async goto() {
-    await this.page.goto("https://playwright.dev");
+    await this.page.goto("/auth/login");
   }
 
   async login({ email, password }: { email: string; password: string }) {

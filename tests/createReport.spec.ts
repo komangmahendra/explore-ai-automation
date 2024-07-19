@@ -7,7 +7,7 @@ test("Create Report", async ({
   projectFormModal,
   proposalPage,
 }) => {
-  await page.goto("http://localhost:5173");
+  await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
 
   const email = "admin@populix.co";

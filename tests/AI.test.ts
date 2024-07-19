@@ -8,7 +8,7 @@ const options: StepOptions = {
 };
 
 test("gpt-3.5-turbo", async ({ page }) => {
-  await page.goto("http://localhost:5173");
+  await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
 
   const email = "admin@populix.co";
@@ -39,7 +39,7 @@ test("gpt-3.5-turbo", async ({ page }) => {
 });
 
 test("zeroStep", async ({ page }) => {
-  await page.goto("http://localhost:5173");
+  await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
 
   const email = "admin@populix.co";
@@ -63,7 +63,7 @@ test("zeroStep", async ({ page }) => {
 });
 
 test("Check content with AI", async ({ page, loginPage, projectPage }) => {
-  await page.goto("http://localhost:5173");
+  await page.goto("/");
   await page.waitForLoadState("domcontentloaded");
 
   const email = "admin@populix.co";
@@ -71,7 +71,7 @@ test("Check content with AI", async ({ page, loginPage, projectPage }) => {
 
   await loginPage.login({ email, password: pass });
   await projectPage.isVisible();
-  await page.goto("http://localhost:5173/projects/61/proposal");
+  await page.goto("/projects/61/proposal");
 
   await ai("Await for load content", { page, test });
   const clientBackgroundInput = await ai(
